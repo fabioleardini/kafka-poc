@@ -1,0 +1,11 @@
+C:\Projects\kafka-poc\src\KafkaPoc.Domain\bin\Debug\net8.0\KafkaPoc.Domain.deps.json
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\bin\Debug\net8.0\KafkaPoc.Domain.dll
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\bin\Debug\net8.0\KafkaPoc.Domain.pdb
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.GeneratedMSBuildEditorConfig.editorconfig
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.AssemblyInfoInputs.cache
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.AssemblyInfo.cs
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.csproj.CoreCompileInputs.cache
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.dll
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\refint\KafkaPoc.Domain.dll
+c:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\KafkaPoc.Domain.pdb
+C:\Projects\kafka-poc\src\KafkaPoc.Domain\obj\Debug\net8.0\ref\KafkaPoc.Domain.dll

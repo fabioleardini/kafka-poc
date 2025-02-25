@@ -1,0 +1,25 @@
+[
+  {
+    "name": "KafkaMessageFunction",
+    "scriptFile": "KafkaPoc.Functions.dll",
+    "entryPoint": "KafkaPoc.Functions.Functions.KafkaMessageFunction.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "events",
+        "direction": "In",
+        "type": "kafkaTrigger",
+        "brokerList": "localhost:29092",
+        "topic": "message-topic",
+        "username": "",
+        "password": "",
+        "protocol": "Plaintext",
+        "authenticationMode": "Plain",
+        "properties": {}
+      }
+    ]
+  }
+]

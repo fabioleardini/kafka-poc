@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: KafkaPoc API
+  version: 1.0.0
+  description: API for interacting with Kafka message system
+
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+
+paths:
+  /api/messages:
+    post:
+      summary: Send a message to Kafka
+      operationId: sendMessage
+      tags:
+        - Messages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+              description: Array of messages to be sent to Kafka
+      responses:
+        '200':
+          description: Message successfully sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The message content
+      required:
+        - message
