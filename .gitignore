@@ -1,6 +1,8 @@
 # .NET build output directories
 bin/
 obj/
+**/bin/
+**/obj/
 
 # Visual Studio files
 .vs/
