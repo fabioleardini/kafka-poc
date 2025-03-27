@@ -14,24 +14,31 @@ namespace KafkaPoc.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> SendMessage([FromBody] string[] jsonContent, CancellationToken cancellationToken)
         {
-            if (jsonContent == null || jsonContent.Length == 0)
+            try
             {
-                return BadRequest(new { message = "No content provided" });
-            }
-
-            foreach (var content in jsonContent)
-            {
-                var message = new Message
+                if (jsonContent == null || jsonContent.Length == 0)
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    Content = content,
-                    Topic = Topic
-                };
+                    return BadRequest(new { message = "No content provided" });
+                }
 
-                await _messageProducer.ProduceAsync(message, cancellationToken);
+                foreach (var content in jsonContent)
+                {
+                    var message = new Message
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Content = content,
+                        Topic = Topic
+                    };
+
+                    await _messageProducer.ProduceAsync(message, cancellationToken);
+                }
+
+                return Ok(new { message = "Message sent successfully" });
             }
-
-            return Ok(new { message = "Message sent successfully" });
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

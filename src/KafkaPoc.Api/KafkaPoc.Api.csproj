@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KafkaPoc.Application\KafkaPoc.Application.csproj" />
     <ProjectReference Include="..\KafkaPoc.Infrastructure\KafkaPoc.Infrastructure.csproj" />
   </ItemGroup>
 
