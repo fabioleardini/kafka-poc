@@ -1,28 +1,31 @@
-# .NET build output directories
-bin/
-obj/
-**/bin/
-**/obj/
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
 
-# Visual Studio files
-.vs/
-*.user
-*.userosscache
-*.suo
-*.userprefs
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
 
-# Rider files
+# Rider
 .idea/
 
-# Visual Studio Code files
-.vscode/
+# Visual Studio
+.vs/
 
-# NuGet packages
-*.nupkg
-packages/
+# Fleet
+.fleet/
+
+# Code Rush
+.cr/
 
 # User-specific files
-*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
 # Build results
 [Dd]ebug/
@@ -31,35 +34,11 @@ packages/
 [Rr]eleases/
 x64/
 x86/
-[Ww][Ii][Nn]32/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
+build/
 bld/
-[Bb]uild/
-[Bb]uilds/
-[Ll]og/
-[Ll]ogs/
-
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-# Visual Studio launch settings
-launchSettings.json
-
-# Tye
-.tye/
-
-# Docker
-.docker/
-
-# Environment files
-.env
-*.env
-
-# macOS
-.DS_Store
-
-# Windows
-Thumbs.db
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
