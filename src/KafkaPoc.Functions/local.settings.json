@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "KafkaConnection__BootstrapServers": "localhost:9092",
+    "KafkaConnection__GroupId": "functions-consumer-group",
+    "KafkaConnection__Topic": "messages",
+    "KafkaConnection__SecurityProtocol": "Plaintext",
+    "KafkaConnection__SaslMechanism": "Plain",
+    "KafkaConnection__Username": "",
+    "KafkaConnection__Password": ""
+  }
+}

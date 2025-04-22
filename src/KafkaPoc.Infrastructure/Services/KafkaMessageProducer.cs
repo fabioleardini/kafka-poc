@@ -1,24 +1,43 @@
 using Confluent.Kafka;
+using Confluent.SchemaRegistry;
+using Confluent.SchemaRegistry.Serdes;
 using KafkaPoc.Domain.Entities;
 using KafkaPoc.Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
-using System.Text.Json;
 
-namespace KafkaPoc.Infrastructure.Services
+namespace KafkaPoc.Infrastructure.Services;
+
+public class KafkaMessageProducer : IMessageProducer
 {
-    public class KafkaMessageProducer(IOptions<ProducerConfig> config) : IMessageProducer
+    private readonly IProducer<string, TestObject> _producer;
+
+    public KafkaMessageProducer(IOptions<ProducerConfig> config)
     {
-        private readonly IProducer<string, string> _producer = new ProducerBuilder<string, string>(config.Value).Build();
-
-        public async Task ProduceAsync(Message message, CancellationToken cancellationToken = default)
+        var schemaRegistryConfig = new SchemaRegistryConfig
         {
-            var kafkaMessage = new Message<string, string>
-            {
-                Key = message.Id,
-                Value = JsonSerializer.Serialize(message)
-            };
+            Url = "localhost:8081"
+        };
+        var schemaRegistry = new CachedSchemaRegistryClient(schemaRegistryConfig);
 
-            await _producer.ProduceAsync(message.Topic, kafkaMessage, cancellationToken);
-        }
+        var jsonSerializerConfig = new JsonSerializerConfig
+        {
+            BufferBytes = 100
+        };
+
+        var producerConfig = config.Value;
+        _producer = new ProducerBuilder<string, TestObject>(producerConfig)
+            .SetValueSerializer(new JsonSerializer<TestObject>(schemaRegistry, jsonSerializerConfig))
+            .Build();
+    }
+
+    public async Task ProduceAsync(TestObject message, CancellationToken cancellationToken = default)
+    {
+        var kafkaMessage = new Message<string, TestObject>
+        {
+            Key = Guid.NewGuid().ToString(),
+            Value = message
+        };
+
+        await _producer.ProduceAsync("kubera.statement.line.importer", kafkaMessage, cancellationToken);
     }
 }
