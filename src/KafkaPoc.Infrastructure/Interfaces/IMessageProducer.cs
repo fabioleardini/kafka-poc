@@ -4,6 +4,6 @@ namespace KafkaPoc.Infrastructure.Interfaces
 {
     public interface IMessageProducer
     {
-        Task ProduceAsync(TestObject message, CancellationToken cancellationToken = default);
+        Task ProduceAsync(StatementLineImporterMessage message, CancellationToken cancellationToken = default);
     }
 }

@@ -11,7 +11,7 @@ namespace KafkaPoc.Api.Controllers
         private readonly IMessageProducer _messageProducer = messageProducer;
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage([FromBody] TestObject content, CancellationToken cancellationToken)
+        public async Task<IActionResult> SendMessage([FromBody] StatementLineImporterMessage content, CancellationToken cancellationToken)
         {
             try
             {
